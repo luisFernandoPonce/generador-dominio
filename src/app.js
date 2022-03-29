@@ -1,11 +1,21 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let pronoum = ["the", "our"];
+let adj = ["great", "big"];
+let noun = ["jogger", "reacon"];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function generarCombinaciones() {
+  var domains = [];
+  for (let i = 0; i < pronoum.length; i++) {
+    for (let adjetivo of adj) {
+      noun.forEach(nombre =>
+        domains.push("\n" + pronoum[i] + adjetivo + nombre + ".com")
+      );
+    }
+  }
+
+  return domains;
+}
 
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  console.log(generarCombinaciones());
+  document.querySelector("#generador").innerHTML = generarCombinaciones();
 };
